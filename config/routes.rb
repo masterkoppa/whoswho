@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   get '/questions/name', to: 'questions#image_question'
+  post '/answer', to: 'answers#submit_answer'
 end
