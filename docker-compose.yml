@@ -1,0 +1,14 @@
+db:
+  image: postgres:9.3
+  ports:
+    - "5432"
+web:
+  build: .
+  command: bundle exec rails server -b0.0.0.0
+  volumes:
+    - ./:/webapp
+    - log/:/webapp/log
+  ports:
+    - 3000:3000
+  links:
+    - db
