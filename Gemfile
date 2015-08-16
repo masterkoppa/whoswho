@@ -17,6 +17,7 @@ gem 'figaro', '>= 1.0.0.rc1'
 gem 'haml-rails'
 gem 'pundit'
 gem 'sendgrid'
+gem 'react-rails', '~> 1.0'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
