@@ -6,7 +6,7 @@ ScoreCard = React.createClass({
 
   render: function() {
     return (
-      <div className='well col-md-1'>
+      <div className='well col-md-6'>
         <h2 className='text-center'>{this.props.title}</h2>
         <h3 className='text-center'>{this.props.score}</h3>
       </div>
