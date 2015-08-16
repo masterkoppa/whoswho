@@ -3,9 +3,14 @@ class QuestionsController < ApplicationController
 
     def image_question
         employees = current_user.get_coworkers
-        @picks = employees.sample(3)
-        @answer = @picks.sample(1)
-
-        render json: @picks
+        choices = employees.sample(3)
+        answer = choices.sample(1)
+        question = {
+          question: {
+            answer: answer,
+            choices: choices
+          }
+        }
+        render json: question
     end
 end
