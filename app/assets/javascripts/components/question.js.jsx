@@ -39,7 +39,8 @@ Question = React.createClass({
 InputGroup = React.createClass({
   propTypes: {
     onClick: React.PropTypes.func,
-    selected: React.PropTypes.number
+    selected: React.PropTypes.number,
+    names: React.PropTypes.array
   },
   render: function() {
     return(
