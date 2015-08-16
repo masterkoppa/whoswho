@@ -54,8 +54,7 @@ class User < ActiveRecord::Base
   def set_employee
     unless employee = Employee.find_by(email: email)
       employee = Employee.create(email: email, full_name: name, url: gravatar_url)
-      self.employee = employee
-      self.save!
     end
+    self.employee = employee
   end  
 end
