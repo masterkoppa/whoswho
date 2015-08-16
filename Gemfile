@@ -19,6 +19,7 @@ gem 'pundit'
 gem 'sendgrid'
 gem 'react-rails', '~> 1.0'
 group :development do
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'html2haml'
