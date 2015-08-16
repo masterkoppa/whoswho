@@ -55,4 +55,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Better Errors Setup
+  if File.exists?("/etc/host_ip")
+    File.open("/etc/host_ip") do |f|
+      f.each_line do |line|
+        line.chomp!
+        if not line.empty?
+          BetterErrors::Middleware.allow_ip! line
+        end
+      end
+    end
+  end
+  
 end
