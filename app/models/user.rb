@@ -43,11 +43,19 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def get_coworkers
+    all = self.employee.company.employees
+
+    return all.where.not({id: self.employee.id})
+  end
+
   private
 
   def set_employee
     unless employee = Employee.find_by(email: email)
       employee = Employee.create(email: email, full_name: name, url: gravatar_url)
+      self.employee = employee
+      self.save!
     end
   end  
 end

@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20150816065341) do
   end
 
   create_table "employees", force: :cascade do |t|
-    t.integer "user_id"
     t.string  "email"
     t.string  "full_name"
     t.string  "nickname"
