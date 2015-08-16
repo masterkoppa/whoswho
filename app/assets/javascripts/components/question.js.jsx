@@ -24,7 +24,7 @@ Question = React.createClass({
   render: function() {
     return (
       <div className='panel panel-default col-md-2'>
-        <img src={this.state.url} />
+        <img src={this.state.url + '?s=200'} />
         <InputGroup names={this.state.choices} onClick={this.selectNewChoice} selected={this.state.selected}/>
       </div>
     );
