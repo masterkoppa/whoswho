@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816002545) do
+ActiveRecord::Schema.define(version: 20150816065341) do
+
+  create_table "answers", force: :cascade do |t|
+    t.boolean "correct"
+    t.integer "user_id"
+    t.integer "target_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.integer "user_id"
+    t.string  "email"
+    t.string  "full_name"
+    t.string  "nickname"
+    t.string  "url"
+    t.integer "company_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150816002545) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.integer  "role"
+    t.integer  "employee_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
