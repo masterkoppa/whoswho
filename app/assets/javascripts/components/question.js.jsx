@@ -4,7 +4,8 @@ Question = React.createClass({
       url: '',
       question: {},
       answer: {},
-      choices: []
+      choices: [],
+      selected: -1
     };
   },
 
@@ -24,16 +25,39 @@ Question = React.createClass({
     return (
       <div className='panel panel-default col-md-2'>
         <img src={this.state.url} />
-        <ul>
-          {
-            this.state.choices.map(function(choice) {
-              return (
-                <li><input type='radio' >{choice.full_name}</input></li>
-              )
-            })
-          }
-        </ul>
+        <InputGroup names={this.state.choices} onClick={this.selectNewChoice} selected={this.state.selected}/>
       </div>
     );
+  },
+
+  selectNewChoice: function(index) {
+    this.setState({selected: index});
+  }
+});
+
+
+InputGroup = React.createClass({
+  propTypes: {
+    onClick: React.PropTypes.func,
+    selected: React.PropTypes.number
+  },
+  render: function() {
+    return(
+      <ul>
+        {this.buildList()}
+      </ul>
+    )
+  },
+  buildList: function() {
+    var selected = this.props.selected;
+    var onClick = this.props.onClick
+    return this.props.names.map(function(name, index){
+      if (index === selected) {
+        return (<li key={index}><input type='radio' onClick={onClick.bind(null, index)} checked>{name.full_name}</input></li>)
+      }else {
+        return (<li key={index}><input type='radio' onClick={onClick.bind(null, index)}>{name.full_name}</input></li>)
+      }
+      
+    });
   }
 });
