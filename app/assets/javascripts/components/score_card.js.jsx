@@ -1,4 +1,4 @@
-var ScoreCard = React.createClass({
+ScoreCard = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     score: React.PropTypes.node

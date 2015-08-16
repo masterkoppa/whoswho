@@ -18,6 +18,7 @@ gem 'haml-rails'
 gem 'pundit'
 gem 'sendgrid'
 gem 'react-rails', '~> 1.0'
+gem 'active_model_serializers'
 group :development do
   gem 'annotate'
   gem 'better_errors'
