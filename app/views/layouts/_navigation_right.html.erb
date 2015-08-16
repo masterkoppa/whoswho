@@ -1,7 +1,7 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
   <li>
-    <%= link_to(current_user) do %>
+    <%= link_to(edit_user_registration_path) do %>
       <img width="20" class="pull-left" style="margin-right: 10px;" src="<%= current_user.gravatar_url %>" alt="Your gravatar!">
       <%= if current_user.name.empty? then current_user.email[/[^@]+/] else current_user.name end %>
     <% end %>
