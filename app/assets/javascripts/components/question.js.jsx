@@ -24,13 +24,17 @@ Question = React.createClass({
   render: function() {
     return (
       <div className='panel panel-default col-md-12'>
-        <img width="200" src={this.state.url + '?s=200'} />
-        <InputGroup names={this.state.choices} onClick={this.selectNewChoice} selected={this.state.selected}/>
+        <img className='img-responsive' width='200' src={this.state.url + '?s=200'} />
+        <InputGroup names={this.state.choices} onClick={this.selectNewChoice} onSubmit={this.submitAnswer} selected={this.state.selected}/>
       </div>
     );
   },
 
   selectNewChoice: function(index) {
     this.setState({selected: index});
+  },
+
+  submitAnswer: function(answer_id) {
+    console.log(answer_id);
   }
 });

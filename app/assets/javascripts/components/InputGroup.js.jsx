@@ -8,6 +8,7 @@ InputGroup = React.createClass({
     return(
       <form>
         {this.buildList()}
+        <button className="btn btn-default">Check Answer</button>
       </form>
     )
   },
